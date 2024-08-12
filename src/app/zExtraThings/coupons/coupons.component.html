@@ -1,0 +1,45 @@
+<div class="mobile-offers-container">
+    <header>
+      <h1>Exclusive Mobile Phone Offers</h1>
+      <p>Discover amazing discounts on the latest mobile phones. Limited time offers available!</p>
+    </header>
+  
+    <section class="offers">
+      <div class="offer" *ngFor="let offer of offers">
+        <img [src]="offer.image" [alt]="offer.name" class="product-image">
+        <div class="offer-details">
+          <h2>{{ offer.name }}</h2>
+          <p><strong>Price:</strong> {{ offer.price }}</p>
+          <p><strong>Discount:</strong> {{ offer.discount }}</p>
+          <p>{{ offer.description }}</p>
+          <a [href]="offer.link" class="btn btn-primary">Shop Now</a>
+        </div>
+      </div>
+    </section>
+  
+    <section class="coupons">
+      <h2>Exclusive Coupons</h2>
+      <div class="coupon" *ngFor="let coupon of coupons">
+        <img [src]="coupon.image" [alt]="coupon.title" class="coupon-image">
+        <div class="coupon-details">
+          <h3>{{ coupon.title }}</h3>
+          <p>Use code <strong>{{ coupon.code }}</strong> at checkout to get {{ coupon.description }}.</p>
+        </div>
+      </div>
+    </section>
+  
+    <!-- New section for card offers -->
+    <section class="card-offers">
+      <h2>Card Offers</h2>
+      <div class="card-offer" *ngFor="let cardOffer of cardOffers">
+        <img [src]="cardOffer.image" [alt]="cardOffer.title" class="card-image">
+        <div class="card-details">
+          <h3>{{ cardOffer.title }}</h3>
+          <p><strong>Benefit:</strong> {{ cardOffer.benefit }}</p>
+          <p>{{ cardOffer.description }}</p>
+          <a [href]="cardOffer.link" class="btn btn-primary">Learn More</a>
+        </div>
+      </div>
+    </section>
+  </div>
+  

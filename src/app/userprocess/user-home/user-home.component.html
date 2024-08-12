@@ -1,0 +1,23 @@
+<div class="layout">
+  <nav class="sidebar">
+    <div class="sidebar-brand">
+      <span class="brand-name"><img class="logo" src="assets\images\apple-touch-icon.png" alt=""> Mobiles.Buy</span>
+    </div>
+    <span>Welcome Back !!!</span>
+    <h4>{{username}}</h4>
+    <div class="sidebar-menu">
+      <a class="link-name" routerLink="/"><i class="fas fa-home"></i> Home</a>
+      <a class="link-name" routerLink="my-account" routerLinkActive="active"> <i class="fas fa-user"></i> Account</a>
+      <a class="link-name" routerLink="my-orders" routerLinkActive="active"><i class="fas fa-box"></i> Orders</a>
+      <a class="link-name" routerLink="coupons" routerLinkActive="active"><i class="fas fa-tag"></i> Coupons</a>
+      <a class="link-name" routerLink="plusmemper" routerLinkActive="active"> <i class="fas fa-plus"></i> Plus Mempership</a>
+      <a class="link-name" routerLink="help" routerLinkActive="active"> <i class="fas fa-headset"></i> Help Center</a>
+      <h5>My Activity</h5>
+      <a class="link-name" routerLink="reviews" routerLinkActive="active"><i class="fas fa-star"></i> Reviews</a><br>
+      <a class="link-name" (click)="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
+  </nav>
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="search-bar-container">
+  <button class="sort-btn" (click)="sortProducts('asc')"routerLinkActive="active"><i class="fas fa-sort-amount-up icon"></i> Low to High</button>
+  <input 
+    type="text" 
+    class="search-bar" 
+    placeholder="Search Products..." 
+    [(ngModel)]="searchQuery"
+    (input)="filterProducts()"
+  />
+  <button class="sort-btn" (click)="sortProducts('desc')" routerLinkActive="active"><i class="fas fa-sort-amount-down icon"></i> High to Low</button>
+</div>
+<div class="filter-options">
+  <button class="filter-button" *ngFor="let brand of uniqueBrands" (click)="filterByBrand(brand)" routerLinkActive="active">{{ brand }}</button>
+  <button class="filter-button" (click)="resetFilters()" routerLinkActive="active">All</button>
+</div>
+
+<div class="container my-4">
+  <div *ngIf="filteredProducts.length === 0" class="no-results">
+    No results found.
+  </div>
+  <div class="card" *ngFor="let product of paginatedProducts">
+    <div class="rotate-card" [ngClass]="{'show-details': selectedProduct === product}">
+      <div class="card-front">
+        <div class="card-image-container">
+          <img [src]="product.imageURL" class="card-img-top" [alt]="product.model">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ product.brand }} - {{ product.model }}</h5>
+          <p class="card-text">Price: {{ product.price }}</p>
+          <button class="btn btn-primary" (click)="onBuyNow(product)">Buy Now</button>
+          <button class="btn btn-secondary" (click)="onShowMore(product)">Show More</button>
+        </div>
+      </div>
+      <div class="card-back">
+        <button class="btn btn-light" (click)="onCloseDetails()">Close</button>
+        <div class="product-details">
+          <h5>Details</h5>
+          <p><strong>Brand:</strong> {{ product.brand }}</p>
+          <p><strong>Model:</strong> {{ product.model }}</p>
+          <p><strong>Price:</strong> {{ product.price }}</p>
+          <p><strong>RAM:</strong> {{ product.ram }} GB</p>
+          <p><strong>ROM:</strong> {{ product.rom }} GB</p>
+          <p><strong>Processor:</strong> {{ product.processor }}</p>
+          <p><strong>Battery Capacity:</strong> {{ product.batteryCapacity }} mAh</p>
+          <button class="btn btn-primary" (click)="onBuyNow(product)">Buy Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="pagination">
+  <button class="pagination-button" (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+  <button class="pagination-button" (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+</div>

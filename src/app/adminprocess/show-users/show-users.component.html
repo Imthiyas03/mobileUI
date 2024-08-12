@@ -1,0 +1,25 @@
+<!-- src/app/components/show-users/show-users.component.html -->
+
+<div class="search-container">
+  <input [(ngModel)]="searchQuery" (input)="search()" placeholder="Search by ID, Name, Email, or Contact">
+</div>
+<table class="user-table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Email</th>
+      <th>Name</th>
+      <th>Contact</th>
+      <th>Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of filteredUsers">
+      <td>{{ user.id }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.contact }}</td>
+      <td>{{user.role}}</td>
+    </tr>
+  </tbody>
+</table>

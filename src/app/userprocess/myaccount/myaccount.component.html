@@ -1,0 +1,27 @@
+<div class="account-container">
+  <div class="account-card">
+    <h2 class="account-title">My Account</h2>
+    
+    <!-- Account Details Section -->
+    <div class="section">
+      <div class="section-title">Account Details</div>
+      <div class="section-content">
+        <p><strong>ID:</strong> {{ user?.id || '-' }}</p>
+        <p><strong>Email:</strong> {{ user?.email || '-' }}</p>
+        <p><strong>Name:</strong> {{ user?.name || '-' }}</p>
+        <p><strong>Contact:</strong> {{ user?.contact || '-' }}</p>
+      </div>
+    </div>
+    
+    <!-- Additional Information Section -->
+    <div class="section additional-info">
+      <div class="section-title">Additional Information</div>
+      <div class="additional-info-content">
+        <p><strong>Date of Birth:</strong> --</p>
+        <p><strong>Age:</strong> --</p>
+        <p><strong>Gender:</strong> --</p>
+        <p><strong>Saved Address:</strong> --</p>
+      </div>
+    </div>
+  </div>
+</div>

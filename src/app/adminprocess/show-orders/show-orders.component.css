@@ -1,0 +1,67 @@
+/* Styling for the search container */
+.search-container {
+  margin-bottom: 20px;
+}
+
+/* Styling for the search bar */
+.search-bar {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Styling for the table and its elements */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff; /* Single color for the table */
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border: none; /* Remove borders */
+}
+
+th {
+  background-color: #f4f4f4;
+}
+
+/* Styling for the error messages */
+.error {
+  color: red;
+}
+
+/* Additional styling for product images and edit forms */
+.product-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+.table-responsive {
+  margin-top: 20px;
+}
+
+.img-thumbnail {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.edit-form-container {
+  background-color: #f8f9fa;
+}
+
+.edit-form-container .form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.image-preview img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}

@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+.layout {
+  display: flex;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #2874f0;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  height: 100vh;
+  position: fixed;
+}
+
+.sidebar-brand {
+  margin-bottom: 2rem;
+}
+
+.sidebar-menu {
+  flex-grow: 1;
+}
+
+.sidebar-menu a {
+  display: block;
+  color: #fff;
+  margin: 1rem 0;
+  text-decoration: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 10px 20px;
+  background-color: #2874f0;
+  border-radius: 4px;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.sidebar-menu a:hover,
+.sidebar-menu .active {
+  background-color: #fff;
+  color: #2874f0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.logo{
+  width: 35px;
+  margin-left: 2px;
+    margin-top: -8px;
+}
+.brand-name {
+  font-family: 'Lobster', cursive;
+  font-size: 35px;
+  color: #ffffff !important;
+  margin: auto;
+}
+
+.logout-button {
+  display: block;
+  color: #fff;
+  margin: 1rem 0;
+  text-decoration: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 10px 74px;
+  background-color: #2874f0;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.logout-button:hover {
+  background-color: #fff;
+  color: #2874f0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.main-content {
+  margin-left: 250px; /* Width of the sidebar */
+  padding: 2rem;
+  flex-grow: 1;
+}

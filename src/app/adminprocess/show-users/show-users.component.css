@@ -1,0 +1,37 @@
+/* src/app/components/show-users/show-users.component.css */
+
+/* Container for the search bar */
+.search-container {
+  margin: 20px 0;
+  padding: 10px;
+}
+
+.search-container input {
+  width: 100%; /* Full width */
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+/* Table styles */
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.8); /* Background with opacity */
+}
+
+thead {
+  background-color: #f4f4f4;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+}
+
+/* Remove table borders */
+th, td {
+  border: none;
+}

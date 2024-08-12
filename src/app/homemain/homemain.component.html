@@ -1,0 +1,8 @@
+<div class="slider-container">
+  <div class="slider-wrapper">
+    <img *ngFor="let image of images" [src]="image" class="slider-image" />
+  </div>
+  <!-- Navigation Arrows -->
+  <div class="nav-arrow prev-arrow" (click)="prevImage()">&#10094;</div>
+  <div class="nav-arrow next-arrow" (click)="nextImage()">&#10095;</div>
+</div>

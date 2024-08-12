@@ -1,0 +1,102 @@
+/* Order Card Styles */
+.order-card {
+  display: flex;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: #ffffff;
+}
+
+.product-image-container {
+  flex-shrink: 0;
+  margin-right: 1rem;
+}
+
+.product-image {
+  max-width: 350px;
+  border-radius: 8px;
+}
+
+.order-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.order-details h3 {
+  margin-top: 0;
+}
+
+.order-details p {
+  margin: 0.5rem 0;
+}
+
+.order-details p strong {
+  font-weight: bold;
+}
+
+/* Buttons */
+.cancel-order-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 200px;
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.cancel-order-button:hover {
+  background-color: #c82333;
+}
+
+.edit-order-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.edit-order-button:hover {
+  background-color: #0056b3;
+}
+
+/* Edit Modal Styles */
+.edit-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  max-width: 100%;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: red;
+}

@@ -1,0 +1,89 @@
+.plus-membership-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .banner-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .membership-details {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .benefits-list {
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+  }
+  
+  .benefits-list li {
+    margin: 10px 0;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .benefits-list li i {
+    margin-right: 10px;
+    color: #007bff;
+  }
+  
+  .membership-pricing {
+    margin: 20px 0;
+    font-size: 18px;
+    color: #007bff;
+  }
+  
+  .cta-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+  }
+  
+  .cta-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .testimonials {
+    margin-top: 40px;
+    text-align: left;
+  }
+  
+  .testimonials h3 {
+    font-size: 24px;
+    color: #007bff;
+  }
+  
+  .testimonial {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .testimonial p {
+    margin: 0;
+  }
+  
+  .testimonial p strong {
+    display: block;
+    margin-top: 10px;
+    color: #555;
+  }
+  

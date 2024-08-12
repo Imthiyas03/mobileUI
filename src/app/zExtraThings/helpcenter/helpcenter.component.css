@@ -1,0 +1,92 @@
+.support-help-center-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .faq-section, .contact-section, .support-form-section {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .faq-section h3, .contact-section h3, .support-form-section h3 {
+    color: #007bff;
+  }
+  
+  .faq-item {
+    text-align: left;
+    margin-bottom: 10px;
+  }
+  
+  .faq-item .question {
+    font-weight: bold;
+  }
+  
+  .faq-item .answer {
+    margin-left: 20px;
+  }
+  
+  .contact-section ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+  }
+  
+  .contact-section ul li {
+    margin: 10px 0;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .contact-section ul li i {
+    margin-right: 10px;
+    color: #007bff;
+  }
+  
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-control {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .btn-primary {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  .success-message {
+    color: green;
+    margin-top: 10px;
+  }
+  
+  .error-message {
+    color: red;
+    margin-top: 10px;
+  }
+  

@@ -1,0 +1,49 @@
+<div class="search-container">
+  <input 
+    type="text" 
+    [(ngModel)]="searchQuery" 
+    (input)="onSearch()" 
+    placeholder="Search by Order ID or Product Name" 
+    class="search-bar"
+  />
+</div>
+
+<div *ngIf="error" class="error">{{ error }}</div>
+<div *ngIf="filteredOrders.length > 0">
+  <table>
+    <thead>
+      <tr>
+        <th>Order ID</th>
+        <th>Order Date</th>
+        <th>Expected Delivery</th>
+        <th>Product</th>
+        <th>Status</th>
+        <th>Total Amount</th>
+        <th>Payment Mode</th>
+        <th>Payment Status</th>
+        <th>User Id</th>
+        <th>Delivery Address</th>
+        <th>Contact</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of filteredOrders">
+        <td>{{ order.orderId }}</td>
+        <td>{{ order.orderDate | date:'short' }}</td>
+        <td>{{ order.expectedDelivery | date:'short' }}</td>
+        <td>
+          {{ order.product.brand }} {{ order.product.model }}<br>
+          <img [src]="order.product.imageURL" alt="{{ order.product.model }}" class="product-image">
+        </td>
+        <td>{{ order.orderStatus }}</td>
+        <td>{{ order.totalAmount }}</td>
+        <td>{{order.paymentMode}}</td>
+        <td>{{ order.paymentStatus }}</td>
+        <td>{{ order.userId }}</td>
+        <td>{{ order.deliveryAddress }}</td>
+        <td>{{ order.contact }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="filteredOrders.length === 0 && !error">No orders found.</div>

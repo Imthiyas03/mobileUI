@@ -1,0 +1,42 @@
+/* homemain.component.css */
+
+.slider-container {
+  position: relative;
+  height: 45vh; /* Height of the slider */
+  width: 100%;  /* Full width of the container */
+  overflow: hidden; /* Hide overflowing content */
+}
+
+.slider-wrapper {
+  display: flex;
+  height: 100%; /* Full height of the container */
+  width: 500%; /* 100% for each of the 5 images */
+  transition: transform 0.5s ease-in-out;
+}
+
+.slider-image {
+  width: 20%; /* 100% / 5 images = 20% width for each image */
+  height: 100%; /* Full height of the container */
+  object-fit: cover; /* Ensure the image covers the container without stretching */
+}
+
+/* Navigation arrows */
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 10; /* Ensure arrows are above the images */
+  padding: 0.5rem;
+}
+
+.prev-arrow {
+  left: 10px; /* Position on the left side */
+}
+
+.next-arrow {
+  right: 10px; /* Position on the right side */
+}
