@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AdminLoginData, Product } from 'src/app/interfaces/adminlogindata';
 import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/userprocess/user.service';
 
 @Component({
   selector: 'app-show-products',
@@ -17,23 +18,22 @@ export class ShowProductsComponent {
   selectedImage: File | null = null;
   imagePreview: string | ArrayBuffer | null = '';
 
-  constructor(private productService: AuthService,private router:Router) {}
+
+  constructor(private productService: AuthService,private router:Router,private userservice:UserService) {}
 
   ngOnInit(): void {
-    this.productService.getProducts().subscribe(products => {
+    this.productService.getProducts(this.userservice.getCurrentUser()!.id).subscribe(products => {
       this.products = products;
       this.filteredProducts = products; // Initialize with all products
     });
   }
 
   loadProducts(): void {
-    this.productService.getProducts().subscribe(data => {
+    this.productService.getProducts(this.userservice.getCurrentUser()!.id).subscribe(data => {
       this.products = data;
       this.filteredProducts = data;
     });
   }
-
-  
 
   search(): void {
     const query = this.searchQuery.toLowerCase();

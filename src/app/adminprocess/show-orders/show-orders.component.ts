@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Order } from 'src/app/interfaces/adminlogindata';
 import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/userprocess/user.service';
 
 @Component({
   selector: 'app-show-orders',
@@ -13,14 +14,14 @@ export class ShowOrdersComponent {
   error: string | null = null;
   searchQuery: string = '';
 
-  constructor(private adminService: AuthService) {}
+  constructor(private adminService: AuthService,private userservice:UserService) {}
 
   ngOnInit(): void {
     this.loadOrders();
   }
 
   loadOrders(): void {
-    this.adminService.getAllOrders().subscribe(
+    this.adminService.getAllOrders(this.userservice.getCurrentUser()!.id).subscribe(
       (data) => {
         this.orders =  data.sort((a, b) => new Date(b.orderDate).getTime() - new Date(a.orderDate).getTime());;
         this.filteredOrders =  data;

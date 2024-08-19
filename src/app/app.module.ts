@@ -29,6 +29,7 @@ import { PlusMempershipComponent } from './zExtraThings/plus-mempership/plus-mem
 import { HelpcenterComponent } from './zExtraThings/helpcenter/helpcenter.component';
 import { ReviewsComponent } from './zExtraThings/reviews/reviews.component';
 import { AboutusComponent } from './zExtraThings/aboutus/aboutus.component';
+import { CartComponent } from './userprocess/cart/cart.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -61,7 +62,8 @@ const routes: Routes = [
     PlusMempershipComponent,
     HelpcenterComponent,
     ReviewsComponent,
-    AboutusComponent
+    AboutusComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

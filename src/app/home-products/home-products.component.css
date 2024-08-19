@@ -87,7 +87,7 @@
 .card {
   position: relative;
   width: 100%;
-  height: 450px; /* Fixed height for consistency */
+  height: 475px; /* Fixed height for consistency */
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 4px8px rgba(0, 0, 0, 0.1);
@@ -153,6 +153,14 @@
 .card-text {
   font-size: 1rem;
   color: #333;
+}
+
+.btn-warning{
+  margin-left: 10px;
+}
+
+.btn-secondary{
+margin-top: 8px;
 }
 
 /* Pagination buttons */

@@ -28,11 +28,11 @@
           <h5 class="card-title">{{ product.brand }} - {{ product.model }}</h5>
           <p class="card-text">Price: {{ product.price }}</p>
           <button class="btn btn-primary" (click)="onBuyNow(product)">Buy Now</button>
-          <button class="btn btn-secondary" (click)="onShowMore(product)">Show More</button>
+          <button class="btn btn-warning" (click)="addToCart(product)">Add To Cart</button>
+          <br><button class="btn btn-secondary" (click)="onShowMore(product)">Show More</button>
         </div>
       </div>
       <div class="card-back">
-        <button class="btn btn-light" (click)="onCloseDetails()">Close</button>
         <div class="product-details">
           <h5>Details</h5>
           <p><strong>Brand:</strong> {{ product.brand }}</p>
@@ -43,6 +43,8 @@
           <p><strong>Processor:</strong> {{ product.processor }}</p>
           <p><strong>Battery Capacity:</strong> {{ product.batteryCapacity }} mAh</p>
           <button class="btn btn-primary" (click)="onBuyNow(product)">Buy Now</button>
+          <!-- <button class="btn btn-warning" (click)="addToCart(product,currentUser)">Add To Cart</button> -->
+          <br><button class="btn btn-secondary" (click)="onCloseDetails()"> Close</button>
         </div>
       </div>
     </div>

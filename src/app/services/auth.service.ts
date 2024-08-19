@@ -36,15 +36,17 @@ export class AuthService {
   //!till here admin login///////////////////////////////////////////////////////////////////
 
   //!for get all orders ////////////////////////////////////////
-  getAllOrders(): Observable<Order[]> {
-    const ordersUrl = `${this.apiUrl}/AdminPage/ShowAllOrders`;
+  getAllOrders(id : number): Observable<Order[]> {
+    //http://localhost:5164/api/AdminPage/ShowAllOrders?id=7
+    const ordersUrl = `${this.apiUrl}/AdminPage/ShowAllOrders?id=${id}`;
     return this.http.get<Order[]>(ordersUrl);
   }
   //!get ordes end here///////////////////////////////////////
 
   //!get all products admin/////////////////////////////////////////
-  getProducts(): Observable<Product[]> {
-    const Url = `${this.apiUrl}/AdminPage/showAllProducts`;
+  getProducts(id : number): Observable<Product[]> {
+    //http://localhost:5164/api/AdminPage/showAllProducts?id=7
+    const Url = `${this.apiUrl}/AdminPage/showAllProducts?id=${id}`;
     return this.http.get<Product[]>(Url);
   }
   //! end of getb all products admin/////////////////////////////////

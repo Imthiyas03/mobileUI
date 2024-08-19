@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, catchError, map, Observable, throwError } from 'rxjs';
-import { Order, UserInterface, UserLoginData } from './user-interface';
+import { Cart, Order, UserInterface, UserLoginData } from './user-interface';
+import { Product } from '../interfaces/adminlogindata';
 
 
 @Injectable({
@@ -59,6 +60,10 @@ export class UserService {
       };
     }
 
+    getProducts(): Observable<Product[]> {
+      const Url = `${this.apiUrl}/UserPage/GetAllProducts`;
+      return this.http.get<Product[]>(Url);
+    }
 
   getProductDetails(productId:number): Observable<any> {
     //http://localhost:5179/api/UserPage/GetProductByid?productId=1
@@ -77,6 +82,11 @@ export class UserService {
     return this.http.post<string>(url, order, { responseType: 'text' as 'json' });
   }
 
+  addCart(cart: any): Observable<string> {
+    const url = `${this.apiUrl}/Cart/addToCart`;
+    return this.http.post<string>(url, cart, { responseType: 'text' as 'json' });
+  }
+
   updateOrder(orderId: number, updateData: { deliveryAddress: string, contact: string }): Observable<void> {
     //http://localhost:5179/api/UserPage/EditOrder?orderId=1
     const url = `${this.apiUrl}/UserPage/EditOrder?orderId=${orderId}`;
@@ -88,6 +98,8 @@ export class UserService {
     const url = `${this.apiUrl}/OrderPage/CancelOrder?orderId=${orderId}`;
     return this.http.put<void>(url,{});
   }
+
+  
 
 
   registerUser(user:any): Observable<any> {

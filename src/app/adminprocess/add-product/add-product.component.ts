@@ -1,18 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/userprocess/user.service';
 
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
   styleUrls: ['./add-product.component.css']
 })
-export class AddProductComponent {
+export class AddProductComponent implements OnInit {
   productForm: FormGroup;
   errorMessage: string | null = null;
   successMessage: string | null = null;
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
+  constructor(private fb: FormBuilder, private authService: AuthService,private userservice :UserService) {
     this.productForm = this.fb.group({
       brand: [''],
       model: ['', Validators.required],
@@ -21,7 +22,8 @@ export class AddProductComponent {
       rom: ['', Validators.required],
       processor: [''],
       batteryCapacity: [''],
-      image: [null]
+      image: [null],
+      sellerid:['']
     });
   }
 
@@ -30,6 +32,15 @@ export class AddProductComponent {
     if (file) {
       this.productForm.patchValue({
         image: file
+      });
+    }
+  }
+
+  ngOnInit(): void {
+    const sellerid=this.userservice.getCurrentUser()?.id;
+    if(sellerid){
+      this.productForm.patchValue({
+          sellerid : sellerid
       });
     }
   }

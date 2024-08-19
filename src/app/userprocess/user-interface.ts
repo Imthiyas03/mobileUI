@@ -20,3 +20,8 @@ export interface Order {
     deliveryAddress: string;
     contact: string;
   }
+
+  export interface Cart{
+    userId:number;
+    productId:number;
+  }

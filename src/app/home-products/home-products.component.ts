@@ -3,6 +3,7 @@ import { Product, ProductHome } from '../interfaces/adminlogindata';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { UserService } from '../userprocess/user.service';
+import { Cart } from '../userprocess/user-interface';
 
 @Component({
   selector: 'app-home-products',
@@ -14,6 +15,7 @@ export class HomeProductsComponent implements OnInit {
   filteredProducts: Product[] = [];
   paginatedProducts: Product[] = [];
   uniqueBrands: string[] = [];
+  cart:Cart |undefined;
   selectedProduct: Product | null = null;
   searchQuery: string = '';
   currentPage: number = 1;
@@ -23,7 +25,7 @@ export class HomeProductsComponent implements OnInit {
   constructor(private productService: AuthService, private router: Router, private userService: UserService) { }
 
   ngOnInit(): void {
-    this.productService.getProducts().subscribe((data: Product[]) => {
+    this.userService.getProducts().subscribe((data: Product[]) => {
       this.products = data;
       this.filteredProducts = data;
       this.totalPages = Math.ceil(this.filteredProducts.length / this.itemsPerPage);
@@ -101,6 +103,33 @@ export class HomeProductsComponent implements OnInit {
       console.log('Buy Now clicked for', product);
     }
   }
+
+  addToCart(product: Product): void {
+    if (this.userService.isLoggedIn()) {
+      const confirmed = confirm("Are you sure you want to add this item to your cart?");
+      if (confirmed) {
+        const cartDto = {
+          productId: product.productId,
+          userId: this.userService.getCurrentUser()?.id
+        };
+  
+        this.userService.addCart(cartDto).subscribe({
+          next: (response) => {
+            console.log(response); // Success message from API
+            alert('Item added to cart successfully');
+          },
+          error: (err) => {
+            console.error(err); // Handle error
+            alert('An error occurred while adding the item to the cart');
+          }
+        });
+      }
+    } else {
+      this.router.navigate(['/userlogin']);
+      console.log('User is not logged in, redirecting to login page.');
+    }
+  }
+
 
   onShowMore(product: Product): void {
     this.selectedProduct = product;

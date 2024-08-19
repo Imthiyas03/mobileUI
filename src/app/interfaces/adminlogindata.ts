@@ -29,6 +29,7 @@ export interface AdminLoginData {
     processor: string;
     batteryCapacity: number;
     imageURL: string;
+    sellerId:number;
   }
   
   export interface Order {
