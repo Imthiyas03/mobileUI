@@ -20,6 +20,8 @@ import { PlusMempershipComponent } from './zExtraThings/plus-mempership/plus-mem
 import { ReviewsComponent } from './zExtraThings/reviews/reviews.component';
 import { HelpcenterComponent } from './zExtraThings/helpcenter/helpcenter.component';
 import { AboutusComponent } from './zExtraThings/aboutus/aboutus.component';
+import { CartComponent } from './userprocess/cart/cart.component';
+import { OrderFromCartComponent } from './userprocess/order-from-cart/order-from-cart.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -39,6 +41,7 @@ const routes: Routes = [
   { path: 'userlogin', component: UserloginComponent},
   {path:'order-page',component:OrderPageComponent},
   {path:'aboutus',component:AboutusComponent},
+  {path:'cartorder',component:OrderFromCartComponent},
   {path:'user-home',
     component:UserHomeComponent,
     canActivate:[RoleGuard],
@@ -49,7 +52,8 @@ const routes: Routes = [
     {path:'coupons',component:CouponsComponent},
     {path:'plusmemper',component:PlusMempershipComponent},
     {path:'help',component:HelpcenterComponent},
-    {path:'reviews',component:ReviewsComponent}
+    {path:'reviews',component:ReviewsComponent},
+    {path:'cart',component:CartComponent}
   ]}
 ];
 

@@ -1,0 +1,138 @@
+<div class="body">
+    <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+      <input formControlName="userId" type="hidden">
+      
+      <!-- Cart Details -->
+      <div *ngIf="cartItems.length" class="cart-details">
+        <h3>Order Page</h3>
+        <div class="cart-info">
+          <div class="cart-items-grid">
+            <div *ngFor="let item of cartItems" class="cart-item-card">
+              <img *ngIf="item.product.imageURL" [src]="item.product.imageURL" alt="Product Photo" class="product-photo">
+              <div class="product-text">
+                <p><strong>Brand:</strong> {{ item.product.brand }}</p>
+                <p><strong>Model:</strong> {{ item.product.model }}</p>
+                <p><strong>Price:</strong> {{ item.product.price }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Address Fields -->
+      <div class="form-row">
+        <div class="form-column">
+          <label for="houseno">House No</label>
+          <input id="houseno" formControlName="houseno" type="text" placeholder="House No">
+          <div *ngIf="orderForm.get('houseno')?.invalid && (orderForm.get('houseno')?.dirty || orderForm.get('houseno')?.touched)" class="error-message">
+            House No is required.
+          </div>
+        </div>
+        <div class="form-column">
+          <label for="street">Street</label>
+          <input id="street" formControlName="street" type="text" placeholder="Street">
+        </div>
+        <div class="form-column">
+          <label for="area">Area</label>
+          <input id="area" formControlName="area" type="text" placeholder="Area">
+        </div>
+      </div>
+  
+      <div class="form-row">
+        <div class="form-column">
+          <label for="city">City</label>
+          <input id="city" formControlName="city" type="text" placeholder="City">
+          <div *ngIf="orderForm.get('city')?.invalid && (orderForm.get('city')?.dirty || orderForm.get('city')?.touched)" class="error-message">
+            City is required.
+          </div>
+        </div>
+        <div class="form-column">
+          <label for="district">District</label>
+          <input id="district" formControlName="district" type="text" placeholder="District">
+          <div *ngIf="orderForm.get('district')?.invalid && (orderForm.get('district')?.dirty || orderForm.get('district')?.touched)" class="error-message">
+            District is required.
+          </div>
+        </div>
+        <div class="form-column">
+          <label for="state">State</label>
+          <input id="state" formControlName="state" type="text" placeholder="State">
+          <div *ngIf="orderForm.get('state')?.invalid && (orderForm.get('state')?.dirty || orderForm.get('state')?.touched)" class="error-message">
+            State is required.
+          </div>
+        </div>
+      </div>
+  
+      <div>
+        <label for="contact">Contact</label>
+        <input id="contact" formControlName="contact" type="text" placeholder="Contact">
+        <div *ngIf="orderForm.get('contact')?.invalid && (orderForm.get('contact')?.dirty || orderForm.get('contact')?.touched)" class="error-message">
+          Contact is required.
+        </div>
+      </div>
+  
+      <!-- Payment Mode -->
+      <div>
+        <label for="paymentMode">Payment Mode</label>
+        <div class="radio-group">
+          <label for="upi">
+            <input type="radio" id="upi" formControlName="paymentMode" value="UPI" (change)="onPaymentModeChange()">
+            UPI
+          </label>
+          <label for="card">
+            <input type="radio" id="card" formControlName="paymentMode" value="Card" (change)="onPaymentModeChange()">
+            Card
+          </label>
+          <label for="netBanking">
+            <input type="radio" id="netBanking" formControlName="paymentMode" value="NetBanking" (change)="onPaymentModeChange()">
+            Net Banking
+          </label>
+          <label for="cashOnDelivery">
+            <input type="radio" id="cashOnDelivery" formControlName="paymentMode" value="CashOnDelivery" (change)="onPaymentModeChange()">
+            Cash on Delivery
+          </label>
+        </div>
+      </div>
+  
+      <!-- Conditional Fields Based on Payment Mode -->
+      <div *ngIf="orderForm.get('paymentMode')?.value === 'UPI'">
+        <label for="upiId">UPI ID</label>
+        <input id="upiId" formControlName="upiId" type="text" placeholder="UPI ID">
+      </div>
+  
+      <div *ngIf="orderForm.get('paymentMode')?.value === 'Card'">
+        <label for="cardNumber">Card Number</label>
+        <input id="cardNumber" formControlName="cardNumber" type="text" placeholder="Card Number">
+        <label for="cvv">CVV</label>
+        <input id="cvv" formControlName="cvv" type="text" placeholder="CVV">
+        <label for="expiryDate">Expiry Date</label>
+        <input id="expiryDate" formControlName="expiryDate" type="text" placeholder="MM/YY">
+        <label for="cardHolderName">Card Holder Name</label>
+        <input id="cardHolderName" formControlName="cardHolderName" type="text" placeholder="Card Holder Name">
+      </div>
+  
+      <div *ngIf="orderForm.get('paymentMode')?.value === 'NetBanking'">
+        <div class="form-column">
+          <label for="bankName">Bank Name</label>
+          <select id="bankName" formControlName="bankName">
+            <option value="" disabled>Select your bank</option>
+            <option *ngFor="let bank of banks" [value]="bank">{{ bank }}</option>
+          </select>
+        </div>
+        <label for="accountNumber">Account Number</label>
+        <input id="accountNumber" formControlName="accountNumber" type="text" placeholder="Account Number">
+        <label for="accountHolderName">Account Holder Name</label>
+        <input id="accountHolderName" formControlName="accountHolderName" type="text" placeholder="Account Holder Name">
+        <label for="ifsc">IFSC</label>
+        <input id="ifsc" formControlName="ifsc" type="text" placeholder="IFSC">
+      </div>
+  
+      <!-- Form Buttons -->
+      <div class="form-buttons">
+        <button type="button" class="submit-button" *ngIf="showPlaceOrderButton" (click)="confirmPlaceOrder()">Place Order</button>
+        <button type="button" class="payment-button" *ngIf="!showPlaceOrderButton" (click)="confirmPayNow()">Pay Now</button>
+        <button type="button" class="clear-button" (click)="confirmClear()">Clear</button>
+        <button type="button" class="cancel-button" (click)="confirmCancel()">Cancel</button>
+      </div>
+    </form>
+  </div>
+  

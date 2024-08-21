@@ -72,10 +72,12 @@ export class ShowProductsComponent {
       formData.append('rom', this.editingProduct.rom.toString());
       formData.append('processor', this.editingProduct.processor || '');
       formData.append('batteryCapacity', this.editingProduct.batteryCapacity.toString());
+      if (this.editingProduct.sellerId && this.editingProduct.sellerId !== 0) {
+        formData.append('sellerId', this.editingProduct.sellerId.toString());
+      }
       if (this.selectedImage) {
         formData.append('image', this.selectedImage, this.selectedImage.name);
       }
-
       this.productService.updateProduct(this.editingProduct.productId, formData).subscribe(updatedProduct => {
         this.loadProducts();
         this.cancelEdit();

@@ -25,3 +25,9 @@ export interface Order {
     userId:number;
     productId:number;
   }
+
+  export interface OrderFromCart {
+    userId: number;
+    deliveryAddress: string;
+    contact: string;
+  }

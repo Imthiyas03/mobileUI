@@ -30,6 +30,7 @@ import { HelpcenterComponent } from './zExtraThings/helpcenter/helpcenter.compon
 import { ReviewsComponent } from './zExtraThings/reviews/reviews.component';
 import { AboutusComponent } from './zExtraThings/aboutus/aboutus.component';
 import { CartComponent } from './userprocess/cart/cart.component';
+import { OrderFromCartComponent } from './userprocess/order-from-cart/order-from-cart.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -63,7 +64,8 @@ const routes: Routes = [
     HelpcenterComponent,
     ReviewsComponent,
     AboutusComponent,
-    CartComponent
+    CartComponent,
+    OrderFromCartComponent
   ],
   imports: [
     BrowserModule,

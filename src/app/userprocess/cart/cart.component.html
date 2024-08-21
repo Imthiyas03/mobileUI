@@ -1,1 +1,33 @@
-<p>cart works!</p>
+<div *ngIf="carts.length; else noCarts">
+    <div *ngFor="let cart of carts" class="order-card">
+      <div class="product-image-container">
+        <img [src]="cart.product.imageURL" alt="{{ cart.product.model }}" class="product-image" />
+      </div>
+      <div class="order-details">
+        <h3>{{ cart.product.brand }} - {{ cart.product.model }}</h3>
+        <p><strong>Price:</strong> {{ cart.product.price}}</p>
+        <p><strong>RAM:</strong> {{ cart.product.ram }} GB</p>
+        <p><strong>ROM:</strong> {{ cart.product.rom }} GB</p>
+        <p><strong>Processor:</strong> {{ cart.product.processor }}</p>
+        <p><strong>Battery Capacity:</strong> {{ cart.product.batteryCapacity }} mAh</p>
+        <!-- Buttons for individual product actions -->
+        <div class="product-actions">
+          <button class="remove-from-cart-button" (click)="removeFromCart(cart.id)">Remove from Cart</button>
+          <button class="buy-now-button" (click)="buyNow(cart.product)">Buy Now</button>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-bar">
+      <div class="total-price">
+        Total Price: {{ getTotalPrice()}}
+      </div>
+      <div class="action-buttons">
+        <button class="buy-now-button" routerLink="/cartorder">Buy Now</button>
+        <button class="remove-all-button" (click)="removeAllItems()">Remove All</button>
+      </div>
+    </div>
+  </div>
+  <ng-template #noCarts>
+    <p>No items in the cart.</p>
+  </ng-template>
+  

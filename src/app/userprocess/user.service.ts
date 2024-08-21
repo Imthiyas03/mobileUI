@@ -87,6 +87,26 @@ export class UserService {
     return this.http.post<string>(url, cart, { responseType: 'text' as 'json' });
   }
 
+  getCart(id:number) : Observable<any[]>{
+    const url = `${this.apiUrl}/Cart/showCart?id=${id}`;
+    return this.http.get<any>(url);
+  }
+
+  removeFromCart(id:number):Observable<any>{
+    const url = `${this.apiUrl}/Cart/removeFromCart?id=${id}`;
+    return this.http.delete<any>(url);
+  }
+
+  RemoveAllFromCart(id:number):Observable<any>{
+    const url = `${this.apiUrl}/Cart/removeAll?id=${id}`;
+    return this.http.delete<any>(url);
+  }
+
+  OrderFromCart(order:any):Observable<string>{
+    const url = `${this.apiUrl}/OrderPage/OrderFromCart`;
+    return this.http.post<string>(url, order, { responseType: 'text' as 'json' });
+  }
+
   updateOrder(orderId: number, updateData: { deliveryAddress: string, contact: string }): Observable<void> {
     //http://localhost:5179/api/UserPage/EditOrder?orderId=1
     const url = `${this.apiUrl}/UserPage/EditOrder?orderId=${orderId}`;
